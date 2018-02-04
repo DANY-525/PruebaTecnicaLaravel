@@ -24,12 +24,8 @@ class ComentariosFormRequest extends Request
     public function rules()
     {
         return [
-            'TitleComment'=>'required|max:60',
-            'Tags'=>'max:60',
-            'FK_Idtask'=>'max:70',
-            'FK_IdUsuario' =>'max:70',
-            'FK_UserName' =>'max:80',
-          
+           
+           
         ];
     }
 }

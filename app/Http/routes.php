@@ -29,6 +29,25 @@ Route::resource('administrador/comentarios','ComentariosController');
 Route::resource('administrador/tareas','TareasController');
 
 
+Route::resource('usuario/usuario','UserUSerController');
+
+
+//creamos ruta de administrador para el proyecto
+Route::resource('usuario/proyecto','UserProjectController');
+
+//creamos la ruta de usuario para las tareas
+Route::resource('usuario/tareas','UserTareasController');
+
+//creamos la ruta de usuario para las tareas
+Route::resource('usuario/comentarios','UserComentariosController');
+
+
+//Comentarios de usuario lista
+Route::resource('usuario/usercomentarios','UserListComentariosController');
+
+
+
+
 
 //creamos ruta de administrador para el proyecto
 Route::resource('login','loginController');

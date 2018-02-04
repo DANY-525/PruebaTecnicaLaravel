@@ -11,8 +11,15 @@ use AplicacionWeb\Http\Requests;
 //hacemos uso del request
 use AplicacionWeb\Http\Requests\TareasFormRequest;
 
+//hacemos uso del request
+use AplicacionWeb\Http\Requests\FormRequest;
+
 //hacemos referencia a nuestro modelo
 use AplicacionWeb\Tareas;
+
+//hacemos referencia a nuestro modelo
+use AplicacionWeb\Comentarios;
+
 //hacemos refercia a esta clase para hacer redirecionamiento
 use Illuminate\Support\Facades\Redirect;
 
@@ -21,7 +28,7 @@ use Illuminate\Support\Facades\Redirect;
 //para conexion de base de datos
 use DB;
 
-class TareasController extends Controller
+class UserTareasController extends Controller
 {
     public function _construct(){
 
@@ -40,7 +47,7 @@ class TareasController extends Controller
     		->paginate(7);
 
     		//retornamos una vista que debemos crearla en la capeta de vistas y enviamos el parametro del objeto obtenido	
-	    	return view('administrador.tareas.index',["tareas"=>$tareas,"searchText"=>$query]);
+	    	return view('usuario.tareas.index',["tareas"=>$tareas,"searchText"=>$query]);
 
     	}
 
@@ -52,7 +59,7 @@ class TareasController extends Controller
     public function create(){
 
 
-        return view("administrador.tareas.create");
+        return view("usuario.tareas.create");
 
     }
 
@@ -80,7 +87,7 @@ class TareasController extends Controller
         //guardamos el objeto
         $tareas->save();
 
-        return Redirect::To('administrador/tareas');
+        return Redirect::To('usuario/tareas');
 
         
     }
@@ -89,7 +96,9 @@ class TareasController extends Controller
      public function edit($IdTask){
 
 
-        return view("administrador.tareas.edit",["tareas"=>Tareas::findOrFail($IdTask)]);
+
+
+        return view("usuario.tareas.edit",["tareas"=>Tareas::findOrFail($IdTask)]);
       
 
     }
@@ -111,7 +120,7 @@ class TareasController extends Controller
 
         
             
-        return Redirect::to('administrador/tareas');
+        return Redirect::to('usuario/tareas');
     }
 
 
@@ -122,9 +131,28 @@ class TareasController extends Controller
 
         $tareas->delete();
 
-        return Redirect::to('administrador/tareas');
+        return Redirect::to('usuario/tareas');
 
 
+    }
+
+
+    public function profile(){
+
+
+
+        return view("usuario.tareas.comment",["tareas"=>Tareas::findOrFail($IdTask)]);
+
+
+
+
+    }
+
+
+
+    public function show($IdTask){
+         return view("usuario.tareas.comment",["tareas"=>Tareas::findOrFail($IdTask)]);
+    
     }
 
 

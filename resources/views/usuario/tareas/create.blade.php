@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.user')
 @section('contenido')
 	
 
@@ -24,11 +24,10 @@
 			</div>
 
 
-			{!!Form::Open(array('url'=>'administrador/tareas','method'=>'POST','autocomplete' =>'off'))!!}
+			{!!Form::Open(array('url'=>'usuario/tareas','method'=>'POST','autocomplete' =>'off'))!!}
 
 			{{Form::Token()}}
 
-		
 			<div class="form-group">
 				
 				<label for="tarea padre"></label>
@@ -131,7 +130,6 @@
 
 			<button class="btn btn-danger" type="reset">Cancelar</button>
 			</div>
-
 
 			{!!Form::Close()!!}
 

@@ -121,7 +121,7 @@
               </ul>
             </li>
              <li>
-              <a href="../../usuario/comentarios">
+              <a href="../../usuario/usercomentarios">
                 <i class="fa fa-plus-square"></i> <span>Comentarios</span>
                 <small class="label pull-right bg-red">PDF</small>
               </a>
@@ -165,7 +165,7 @@
                   	<div class="row">
 	                  	<div class="col-md-12">
 		                         
-                              @yield('usercontenido')
+                              @yield('contenido')
 		                          <!--Fin Contenido-->
                            </div>
                         </div>
